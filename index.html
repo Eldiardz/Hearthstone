@@ -16,7 +16,7 @@
 			background-size: 100% 100%;
 			position: relative;
 			transition: 1.5s;
-			background-image: url(images/1.png);
+
 		}
 		.enemy_img{
 			width:200px;
@@ -26,7 +26,7 @@
 			background-size: 100% 100%;
 			position: relative;
 			transition: 1s;
-			background-image: url(images/2.png);
+			background-image: url(full-images/7.png);
 		}
 		.player{
 			text-align: center;
@@ -79,6 +79,23 @@
 	
 <script type="text/javascript">
 
+	let images = ["full-images/1.png", "full-images/2.png", "full-images/3.png", "full-images/4.png", "full-images/5.png", "full-images/6.png", "full-images/7.png", "full-images/8.png", "full-images/9.png",]
+
+	let randomImg = function(){
+		return Math.floor(Math.random() * images.length)
+	}
+
+	let randomImg1 = function(){
+		return Math.floor(Math.random() * images.length)
+	}  
+
+	let rndm = images[randomImg()]
+	let rndm1 = images[randomImg()]
+
+	document.querySelector(".player_img").style.backgroundImage = `url(${rndm})`
+	document.querySelector(".enemy_img").style.backgroundImage = `url(${rndm1})`
+	
+	
 	let enemyCard = document.querySelector(".enemy_img")
 	let enemyHP= document.querySelector(".enemy_hp")
 	let enemyDMG = document.querySelector(".enemy_damage")
@@ -129,10 +146,12 @@
 			playerName.textContent = "Игрок проиграл";
 			playerCard.style.opacity = "0%"
 		}
+
 		if(enemy.hp < player.hp){
 			enemyName.textContent = "Враг проиграл";
 			enemyCard.style.opacity = "0%"
 		}
+		
 		if(player.hp == enemy.hp){
 			playerName.textContent = "Ничья"
 			enemyName.textContent = "Ничья"
@@ -140,6 +159,9 @@
 	}
 
 	setTimeout(startBattle, 2500)
+
+
+	
 	
 </script>
 </body>
